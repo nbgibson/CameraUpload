@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 cameradir="/Volumes/NO\ NAME/DCIM/"
-for D in `find "$cameradir" -type d`
+cd $cameradir
+for dir in */
 do
-  if [[ "$D" == "$cameradir" ]]; then
+  if [[ "$dir" == "$cameradir" ]]; then
     continue
   else
-    echo "D: " "$D"
-    date=$(stat -f "%Sm" -t "%y.%m.%d" "$D")
+    echo "dir: " "$dir"
+    date=$(stat -f "%Sm" -t "%y.%m.%d" "$dir")
     echo "date: " "$date"
-    scp -r "$D" homelan:/media/NAS/nathan/Photos/GoodCamera/"$date"
+    scp -r "$dir" homelan:/media/NAS/nathan/Photos/GoodCamera/"$date"
   fi
 done
-
+#Trigger rsync script to move raws to NAS
 ssh homelan /home/nate/bin/moveraws
