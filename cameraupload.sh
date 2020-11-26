@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cameradir=/Volumes/NO\ NAME/DCIM/
+cameradir="/Volumes/NO\ NAME/DCIM/"
 for D in `find "$cameradir" -type d`
 do
   if [[ "$D" == "$cameradir" ]]; then
