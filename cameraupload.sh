@@ -14,4 +14,4 @@ echo "========================= Moving photos to NAS ========================"
 ssh homelan /home/nate/bin/moveraws
 #Trigger reindex of Photos dir(s) to have them appear in PhotoStation
 echo "========================= Reindex Photos on NAS ========================"
-ssh homenas synoindex -R photo
+ssh homenas /usr/syno/bin/synoindex -R photo
