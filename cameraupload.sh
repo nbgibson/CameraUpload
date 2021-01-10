@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 cameradir='/Volumes/NO NAME/DCIM/'
 cd "$cameradir"
+echo "========================= Moving photos to homelan ========================"
 for dir in */
 do
   echo "dir: " "$dir"
@@ -9,4 +10,8 @@ do
   scp -r "$dir" homelan:/media/NAS/nathan/Photos/GoodCamera/"$date"
 done
 #Trigger rsync script to move raws to NAS
+echo "========================= Moving photos to NAS ========================"
 ssh homelan /home/nate/bin/moveraws
+#Trigger reindex of Photos dir(s) to have them appear in PhotoStation
+echo "========================= Reindex Photos on NAS ========================"
+ssh homenas synoindex -R photo
