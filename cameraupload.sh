@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cameradir='/Volumes/NO NAME/DCIM/'
-cd "$cameradir"
+cd "$cameradir" || exit
 echo "========================= Moving photos to homelan ========================"
 for dir in */
 do
