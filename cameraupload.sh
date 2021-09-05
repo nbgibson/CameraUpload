@@ -7,7 +7,7 @@ do
   echo "dir: " "$dir"
   date=$(stat -f "%Sm" -t "%y.%m.%d" "$dir")
   echo "date: " "$date"
-  scp -r "$dir" homenas:/volume1/NAS/nathan/Photos/GoodCamera/"$date"
+  scp -r "$dir" homenas:/var/services/homes/nate/Photos/GoodCamera/"$date"
 done
 #Trigger rsync script to move raws to NAS
 echo "========================= Sorting and moving Raws ========================"
