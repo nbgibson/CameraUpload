@@ -14,4 +14,4 @@ echo "========================= Sorting and moving Raws ========================
 ssh homenas /var/services/homes/nate/moveraws.sh
 #Trigger reindex of Photos dir(s) to have them appear in PhotoStation
 echo "========================= Reindex Photos on NAS ========================"
-ssh homenas 'find /var/services/photo/DSLR/ -mindepth 1 -maxdepth 1 -type d -mtime -1 -exec /usr/syno/bin/synoindex -R photo -A {} \;'
+ssh homenas 'find /var/services/homes/nate/Photos/Raws/ -mindepth 1 -maxdepth 1 -type d -mtime -1 -exec /usr/syno/bin/synoindex -R photo -A {} \;'
